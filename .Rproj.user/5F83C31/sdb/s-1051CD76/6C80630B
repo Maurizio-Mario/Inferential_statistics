@@ -1,0 +1,18 @@
+{
+    "contents" : "---\ntitle: \"Inferential Statistics - Course Project 6\"\nauthor: \"Maurizio Murino\"\ndate: \"25 January 2016\"\noutput: html_document\n---\n\nIn this project you will investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. The mean of exponential distribution is 1/lambda and the standard deviation is also 1/lambda. Set lambda = 0.2 for all of the simulations. You will investigate the distribution of averages of 40 exponentials. Note that you will need to do a thousand simulations.\n\nIllustrate via simulation and associated explanatory text the properties of the distribution of the mean of 40 exponentials. \n\n1. Show the sample mean and compare it to the theoretical mean of the distribution.\n2. Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution.\n3. Show that the distribution is approximately normal. Focus on the difference between the distribution of a large collection of random exponentials and the distribution of a large collection of averages of 40 exponentials.\n\nlinks -> <http://rmarkdown.rstudio.com>\n\nWhen you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\n```{r}\nsummary(cars)\n```\n\nYou can also embed plots, for example:\n\n```{r, echo=FALSE}\nplot(cars)\n```\n\nNote that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n",
+    "created" : 1453735140107.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4127829231",
+    "id" : "6C80630B",
+    "lastKnownWriteTime" : 1453739880,
+    "path" : "C:/Users/MaurizioLocale/OneDrive/Data_Science/6 Inferential_statistics/Inferential_statistics/inferential_statistics_cp.Rmd",
+    "project_path" : "inferential_statistics_cp.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
