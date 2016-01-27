@@ -25,9 +25,8 @@ I create a first data object `dt1` with a vectorized operation. When possible, I
 ```{r}
 set.seed(123)
 dt1 <- replicate(1000, mean(rexp(40, lambda)))
+class(dt1)
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 ## Sample Mean versus Theoretical Mean 
 _Include figures with titles. In the figures, highlight the means you are comparing. Include text that explains the figures and what is shown on them, and provides appropriate numbers._
@@ -44,8 +43,41 @@ th_mean
 Now I am going to graphically compare the distribution of data `dt1` abouth the means.
 
 ```{r show hist and means}
-hist(dt1)
+hist(dt1, main = "Simulation means frequencies", col = "lightgray")
+abline(v = s_mean, col = "green")
+abline(v = th_mean, col = "red")
 ```
 
-Sample Variance versus Theoretical Variance: Include figures (output from R) with titles. Highlight the variances you are comparing. Include text that explains your understanding of the differences of the variances.
-Distribution: Via figures and text, explain how one can tell the distribution is approximately normal.
+As anticipated after the calculation of the means, the deffirence between the sample mean and the theoretical mean is not relevant. 
+
+## Sample Variance versus Theoretical Variance
+_Include figures (output from R) with titles. Highlight the variances you are comparing. Include text that explains your understanding of the differences of the variances._
+
+Comparison between sample variance and theoretical variance.
+
+```{r variance}
+s_var <- var(dt1)
+th_var <- ((1/lambda)^2)/40
+s_var
+th_var
+```
+
+## Distribution
+_Via figures and text, explain how one can tell the distribution is approximately normal._
+
+As anticipated, variance and theoretical variance do not differ that much, hence variability is similar between to a normal distribution. That is maily due to the Central Limit Theorem. You can approximate the sample’s distribution with a normal distribution if the sample size is large enough.
+
+```{r distribution, fig.height = 5}
+# Add normal distribution line to hist
+
+par(mfrow = c(1, 2))
+h2 <- hist(dt1, col="lightgray", main="Normal distribution curve") 
+xfit<-seq(min(dt1),max(dt1),length=40) 
+yfit<-dnorm(xfit,mean=mean(dt1),sd=sd(dt1)) 
+yfit <- yfit*diff(dt1[1:2])*length(dt1) 
+lines(xfit, yfit, col="red", lwd=2)
+
+h1 <- hist(dt1, probability = TRUE, col = "lightgray", main = "Probability density curve")
+lines(density(dt1), col = "red", lwd = 2)
+```
+
