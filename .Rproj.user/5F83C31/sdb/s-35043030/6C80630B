@@ -1,0 +1,18 @@
+{
+    "contents" : "---\ntitle: \"Inferential Statistics - Course Project 6\"\nauthor: \"Maurizio Murino\"\ndate: \"25 January 2016\"\noutput: html_document\n---\n\n## Introduction\n\n_In this project you will investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. The mean of exponential distribution is 1/lambda and the standard deviation is also 1/lambda. Set lambda = 0.2 for all of the simulations. You will investigate the distribution of averages of 40 exponentials. Note that you will need to do a thousand simulations._\n\nIllustrate via simulation and associated explanatory text the properties of the distribution of the mean of 40 exponentials. \n\n## Simulations\n_Include English explanations of the simulations you ran, with the accompanying R code._\n\nSet `lambda` to 0.2.\n\n```{r}\nlambda <- 0.2\n```\n\nI create a first data object `dt1` with a vectorized operation. When possible, I prefer this approach rather than a loop function. I set `set.seed(123)`. \n\n```{r}\nset.seed(123)\ndt1 <- replicate(1000, mean(rexp(40, lambda)))\n```\n\nNote that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n\n## Sample Mean versus Theoretical Mean \n_Include figures with titles. In the figures, highlight the means you are comparing. Include text that explains the figures and what is shown on them, and provides appropriate numbers._\n\nThe sample mean is not very distant from the theoretical mean.\n\n```{r}\ns_mean <- mean(dt1)\nth_mean <- 1/lambda\ns_mean\nth_mean\n```\n\nNow I am going to graphically compare the distribution of data `dt1` abouth the means.\n\n```{r show hist and means}\nhist(dt1)\n```\n\nSample Variance versus Theoretical Variance: Include figures (output from R) with titles. Highlight the variances you are comparing. Include text that explains your understanding of the differences of the variances.\nDistribution: Via figures and text, explain how one can tell the distribution is approximately normal.\n",
+    "created" : 1453735140107.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1574935572",
+    "id" : "6C80630B",
+    "lastKnownWriteTime" : 1453913095,
+    "path" : "C:/Users/MaurizioLocale/OneDrive/Data_Science/6 Inferential_statistics/Inferential_statistics/inferential_statistics_cp.Rmd",
+    "project_path" : "inferential_statistics_cp.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
